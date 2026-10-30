@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Prompts da Mídia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700&family=Instrument+Serif:ital@1&display=swap">
+<style>
+/* Uma coluna, lista de prompts que abrem ao tocar; mesmo visual do Kit da Mídia */
+:root{--bg:#FFF7D9;--fg:#141414;--muted:#6B6352;--line:#E3D7BC;--accent:#FF7500;--accent-text:#B85400;--code:#FBF0CC;--blue:#48A1B1;
+--display:'Bebas Neue',Oswald,Impact,sans-serif;--body:Montserrat,system-ui,sans-serif;--serif:'Instrument Serif',Georgia,serif;--mono:ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141414;--fg:#FFF7D9;--muted:#B8AE95;--line:#34302A;--accent-text:#FF7500;--code:#1F1D19;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141414;--fg:#FFF7D9;--muted:#B8AE95;--line:#34302A;--accent-text:#FF7500;--code:#1F1D19;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
+main{max-width:720px;margin:0 auto;padding-block:32px 80px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:32px}
+.eyebrow{display:flex;align-items:center;gap:12px;font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.eyebrow::before{content:"";width:28px;height:3px;background:var(--accent)}
+h1{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(60px,15vw,104px);line-height:.88}
+h1 span{color:var(--accent)}
+.lead{margin:0;color:var(--muted);max-width:52ch}
+.how{list-style:none;margin:0;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:10px;border-top:3px solid var(--accent);padding-top:18px}
+.how li{counter-increment:s;display:grid;grid-template-columns:34px minmax(0,1fr);gap:8px}
+.how li::before{content:counter(s,decimal-leading-zero);font-family:var(--display);font-size:22px;line-height:1.1;color:var(--accent)}
+h2{margin:0;font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.list{border-top:1px solid var(--line)}
+.pr{border-bottom:1px solid var(--line)}
+.head{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;padding:18px 0}
+.head .day{font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text)}
+.head .tt{grid-column:1;font-family:var(--display);font-size:34px;line-height:1}
+.head .dd{grid-column:1;color:var(--muted);font-size:14px}
+.head .chev{grid-column:2;grid-row:1/span 3;align-self:center;font-size:28px;font-weight:500;transition:transform .2s}
+.head[aria-expanded="true"] .chev{transform:rotate(45deg)}
+.head:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.head:hover .tt{color:var(--accent-text)}
+.body{display:flex;flex-direction:column;gap:12px;padding-bottom:22px}
+.acts{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+button.copy{font:inherit;font-weight:700;font-size:14px;cursor:pointer;border-radius:4px;padding:9px 14px;border:2px solid var(--fg);background:transparent;color:var(--fg)}
+button.copy.primary{background:var(--fg);color:var(--bg)}
+button.copy:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.msg{font-size:14px;font-weight:600;color:var(--accent-text)}
+pre{margin:0;background:var(--code);padding:16px;font-family:var(--mono);font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;max-height:420px;overflow:auto}
+details{border-top:1px solid var(--line);padding-top:16px}
+summary{cursor:pointer;font-weight:700}
+details pre{margin-top:12px}
+.note{font-size:14px;color:var(--muted)}
+.quote{font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.25}
+@media (prefers-reduced-motion:reduce){.head .chev{transition:none}}
+</style>
+</head>
+<body>
+
+<main>
+  <a href="./" style="font-weight:700;font-size:14px;color:inherit;text-decoration:none">← Kit da Mídia</a>
+  <span class="eyebrow">Equipe da mídia · Atitude Valencia</span>
+  <h1>PROMPTS DA <span>SEMANA</span></h1>
+  <p class="lead">Um prompt para cada peça da linha editorial. Funciona em qualquer conversa nova do Claude, mesmo sem o projeto.</p>
+  <ol class="how">
+    <li><span>Abra uma conversa nova no Claude e comece pelo <b>Tema da semana</b>, logo depois do culto.</span></li>
+    <li><span>Toque na peça, depois em <b>Copiar prompt completo</b>. Ele já leva todas as regras da igreja.</span></li>
+    <li><span>Cole no Claude e troque o que está entre [colchetes]. Anexe as fotos e as anotações.</span></li>
+    <li><span>Na mesma conversa, as próximas peças podem usar só <b>Copiar só a tarefa</b>.</span></li>
+  </ol>
+  <section style="display:flex;flex-direction:column;gap:12px">
+    <h2>Peças</h2>
+    <div class="list">
+<article class="pr" id="domingo">
+  <button class="head" type="button" aria-expanded="false" aria-controls="b-domingo"><span class="day">Antes de tudo</span><span class="tt">Tema da semana</span><span class="dd">Use primeiro, logo depois do culto. As outras peças partem daqui.</span><span class="chev" aria-hidden="true">+</span></button>
+  <div class="body" id="b-domingo" hidden>
+    <div class="acts"><button class="copy primary" type="button" data-k="domingo" data-full="1">Copiar prompt completo</button><button class="copy" type="button" data-k="domingo">Copiar só a tarefa</button><span class="msg" aria-live="polite"></span></div>
+    <pre>TAREFA: organizar o tema da semana a partir da pregação de domingo.
+
+Pregação de [DATA]
+Pregador: [NOME]
+Texto bíblico: [LIVRO, CAPÍTULO E VERSÍCULOS]
+Minhas anotações (ou transcrição): [COLE AQUI]
+
+Me entregue:
+1. O tema em uma frase curta e as 2 ou 3 palavras-chave que vão aparecer nas peças da semana.
+2. Os pontos principais da mensagem, na ordem em que foram pregados, com o versículo de cada um (NVI).
+3. Como a mensagem aponta para Jesus, do jeito que foi pregado. Se o pregador não fez essa ligação, me diga em vez de inventar.
+4. De 3 a 5 frases marcantes do pregador, exatamente como ele falou, para usar nos reels e posts.
+5. Uma sugestão de versículo para a Palavra do dia.
+
+Guarde esse tema: vou te pedir as outras peças da semana nesta mesma conversa.</pre>
+  </div>
+</article>
+<article class="pr" id="seg">
+  <button class="head" type="button" aria-expanded="false" aria-controls="b-seg"><span class="day">Seg · 10h</span><span class="tt">Reels resumo do culto</span><span class="dd">Vídeo curto com os melhores momentos do domingo.</span><span class="chev" aria-hidden="true">+</span></button>
+  <div class="body" id="b-seg" hidden>
+    <div class="acts"><button class="copy primary" type="button" data-k="seg" data-full="1">Copiar prompt completo</button><button class="copy" type="button" data-k="seg">Copiar só a tarefa</button><span class="msg" aria-live="polite"></span></div>
+    <pre>TAREFA: roteiro do Reels de resumo do culto (segunda, 10h). Objetivo: registro e convite.
+
+Tema da semana: [TEMA E PALAVRAS-CHAVE, ou &quot;use o tema que você organizou acima&quot;]
+Clipes que eu tenho: [LISTE: louvor, abraços no minuto conexão, kids, pregação, pessoas chegando...]
+Duração desejada: [ex.: 30 a 45 segundos]
+
+Me entregue:
+1. Roteiro com as cenas numeradas, a duração de cada uma e qual clipe usar.
+2. Texto na tela de cada cena (curto, título em Bebas Neue e legenda em Montserrat, palavra-chave em laranja).
+3. Uma frase do pregador para entrar no meio do vídeo, se couber.
+4. Legenda do post: gancho na primeira linha, 3 a 6 linhas curtas, convite para o próximo domingo às 11h, #atitudevalencia.
+Não sugira música a não ser que eu peça.</pre>
+  </div>
+</article>
+<article class="pr" id="ter">
+  <button class="head" type="button" aria-expanded="false" aria-controls="b-ter"><span class="day">Ter · 16h</span><span class="tt">Carrossel de fotos</span><span class="dd">As melhores fotos do culto em sequência.</span><span class="chev" aria-hidden="true">+</span></button>
+  <div class="body" id="b-ter" hidden>
+    <div class="acts"><button class="copy primary" type="button" data-k="ter" data-full="1">Copiar prompt completo</button><button class="copy" type="button" data-k="ter">Copiar só a tarefa</button><span class="msg" aria-live="polite"></span></div>
+    <pre>TAREFA: carrossel de fotos do culto (terça, 16h). Objetivo: registro.
+
+Tema da semana: [TEMA E PALAVRAS-CHAVE]
+Fotos: [ANEXE AS FOTOS ou descreva cada uma]
+Quantidade de slides: [ex.: 8 a 10]
+
+Me entregue:
+1. A ordem das fotos e por quê (abrir com a mais forte, variar planos: gente, louvor, detalhes, kids, pregação).
+2. Texto da capa: título curto em Bebas Neue ligado ao tema, em creme sobre a foto escurecida embaixo, rodapé &quot;● ATITUDE VALENCIA&quot;. Só a capa tem texto, o resto são fotos limpas.
+3. Legenda do post com gancho, 3 a 6 linhas, convite e #atitudevalencia.
+Se alguma foto estiver escura, tremida ou mostrar muito lugar vazio, me avise.</pre>
+  </div>
+</article>
+<article class="pr" id="qua1">
+  <button class="head" type="button" aria-expanded="false" aria-controls="b-qua1"><span class="day">Qua · 10h</span><span class="tt">Reels trecho da pregação</span><span class="dd">Um trecho forte da mensagem, com legenda.</span><span class="chev" aria-hidden="true">+</span></button>
+  <div class="body" id="b-qua1" hidden>
+    <div class="acts"><button class="copy primary" type="button" data-k="qua1" data-full="1">Copiar prompt completo</button><button class="copy" type="button" data-k="qua1">Copiar só a tarefa</button><span class="msg" aria-live="polite"></span></div>
+    <pre>TAREFA: Reels com um trecho da pregação (quarta, 10h). Objetivo: edificação e alcance.
+
+Tema da semana: [TEMA E PALAVRAS-CHAVE]
+Transcrição ou anotações do trecho: [COLE AQUI, com o minuto do vídeo se tiver]
+
+Me entregue:
+1. O melhor trecho de 30 a 60 segundos, com início e fim exatos (primeira e última frase), escolhido pelo que aponta para Jesus e para o tema.
+2. Gancho para os 2 primeiros segundos: a frase do pregador que abre o vídeo ou um título curto na tela.
+3. Texto de capa do Reels (Bebas Neue, até 6 palavras, palavra do tema em laranja).
+4. Legenda: gancho, 3 a 6 linhas, convite para o culto ou célula, #atitudevalencia.
+5. Opcional: a frase para um post &quot;frase do pregador&quot; (foto do pregador com degradê escuro embaixo, frase em Bebas Neue creme, última palavra em laranja). Use as palavras dele, sem reescrever.</pre>
+  </div>
+</article>
+<article class="pr" id="qua2">
+  <button class="head" type="button" aria-expanded="false" aria-controls="b-qua2"><span class="day">Qua · 16h</span><span class="tt">Carrossel Resumo da Palavra</span><span class="dd">Os 8 slides que resumem a mensagem.</span><span class="chev" aria-hidden="true">+</span></button>
+  <div class="body" id="b-qua2" hidden>
+    <div class="acts"><button class="copy primary" type="button" data-k="qua2" data-full="1">Copiar prompt completo</button><button class="copy" type="button" data-k="qua2">Copiar só a tarefa</button><span class="msg" aria-live="polite"></span></div>
+    <pre>TAREFA: carrossel &quot;Resumo da Palavra&quot; (quarta, 16h). Objetivo: edificação.
+
+Tema da semana: [TEMA E PALAVRAS-CHAVE]
+Texto bíblico: [REFERÊNCIA]
+Anotações da mensagem: [COLE AQUI]
+Fotos: [ANEXE: pregador para a capa, uma foto horizontal para o slide 5, duas para os slides 6 e 8]
+
+Formato: 8 slides 1080×1350. Margem fixa de 96px. Em cada slide: etiqueta no topo (traço laranja + texto em caixa-alta espaçada, número da página à direita, ex.: 02/08), 1 título em Bebas Neue, 1 parágrafo curto em Montserrat, no máximo 1 frase em Instrument Serif itálico, rodapé &quot;● ATITUDE VALENCIA&quot;. Sem caixas, círculos ou efeitos.
+
+Ritmo dos slides:
+1. Capa: foto do pregador inteira, degradê escuro embaixo, título creme com as palavras finais em laranja, etiqueta RESUMO DA PALAVRA + livro à direita, seta →.
+2. Contexto (fundo creme): título + parágrafo + versículo em serifa + linha fina + frase que puxa para os pontos.
+3. Ponto 1 (creme): mesma estrutura, termina com uma conclusão curta.
+4. Ponto 2 (creme): termina puxando o ponto 3.
+5. Ponto 3 (meio a meio): foto em cima, texto embaixo, termina com uma pergunta em serifa.
+6. Resposta prática: foto em cima que se funde no preto, frase-ponte em serifa creme, lista 01/02/03 com o verbo em Bebas Neue e o complemento em Montserrat ao lado.
+7. A certeza (fundo laranja, texto preto): frase-ponte pequena, título gigante, parágrafo curto.
+8. O convite (foto escurecida): frase em serifa, título creme, linha, convite para as células (quartas e quintas presencial, sextas online) e para o direct, #atitudevalencia no rodapé.
+
+Regras do texto: siga a ordem do que foi pregado, sem frases soltas (cada slide termina puxando o próximo). A palavra-chave do tema aparece na capa e no fechamento. O slide 7 aponta para o que Deus fez e faz, não para o esforço da pessoa. Quebre os títulos à mão para não sobrar uma palavra sozinha.
+
+Me entregue primeiro só os textos de cada slide para eu aprovar. Depois, se eu pedir, monte as imagens.</pre>
+  </div>
+</article>
+<article class="pr" id="qui">
+  <button class="head" type="button" aria-expanded="false" aria-controls="b-qui"><span class="day">Qui · 10h</span><span class="tt">Reels trend ou conteúdo do kids</span><span class="dd">Uma trend ligada ao tema, ou as crianças no culto.</span><span class="chev" aria-hidden="true">+</span></button>
+  <div class="body" id="b-qui" hidden>
+    <div class="acts"><button class="copy primary" type="button" data-k="qui" data-full="1">Copiar prompt completo</button><button class="copy" type="button" data-k="qui">Copiar só a tarefa</button><span class="msg" aria-live="polite"></span></div>
+    <pre>TAREFA: conteúdo de quinta, 10h. Escolha: [TREND] ou [KIDS]
+
+SE FOR TREND
+Tema da semana: [TEMA E PALAVRAS-CHAVE]
+Trend que pensamos: [DESCREVA ou cole o link] (se não tiver, peça 2 ideias)
+Quem vai participar: [NOMES OU QUANTAS PESSOAS]
+Me entregue: roteiro curto com cenas numeradas e texto na tela, ligando a trend ao tema sem forçar; o que gravar no domingo logo depois do culto; legenda com #atitudevalencia. Se a trend não combinar com uma igreja, me diga.
+
+SE FOR KIDS
+Fotos ou vídeos das crianças: [ANEXE]
+Me entregue um carrossel no modelo Kids:
+- Cada slide: foto da criança inteira, sem escurecer. No canto inferior esquerdo, uma faixa creme pequena com 1 a 4 palavras em Bebas Neue preto e, embaixo, uma faixa laranja com a palavra-chave em Bebas Neue preto. Abaixo, a pílula preta &quot;● ATITUDE VALENCIA&quot;.
+- As faixas formam uma frase só que atravessa os slides e usa a palavra do tema da semana.
+- Slide final em fundo laranja: versículo em serifa, linha fina, título em Bebas Neue, convite em Montserrat (&quot;Domingo, às 11h, tem espaço para eles no Kids&quot;), rodapé com #atitudevalencia.
+- Confira o gênero de cada criança na concordância (cheio/cheia).
+- Legenda com convite às famílias.</pre>
+  </div>
+</article>
+<article class="pr" id="sex">
+  <button class="head" type="button" aria-expanded="false" aria-controls="b-sex"><span class="day">Sex · 10h</span><span class="tt">Post chamada para domingo</span><span class="dd">Convite para quem ainda não vem ao culto.</span><span class="chev" aria-hidden="true">+</span></button>
+  <div class="body" id="b-sex" hidden>
+    <div class="acts"><button class="copy primary" type="button" data-k="sex" data-full="1">Copiar prompt completo</button><button class="copy" type="button" data-k="sex">Copiar só a tarefa</button><span class="msg" aria-live="polite"></span></div>
+    <pre>TAREFA: post de chamada para o culto de domingo (sexta, 10h). Objetivo: EVANGELÍSTICO. Fala com quem ainda não vem à igreja e termina chamando para o culto.
+
+Tema da semana: [TEMA E PALAVRAS-CHAVE]
+Pregador de domingo e tema, se já souber: [PREENCHA]
+Foto: [ANEXE: lugar da igreja, cadeira, pessoas chegando...]
+
+Me entregue 2 opções de texto curto para o post ou story, cada uma com:
+- uma frase principal que alguém de fora entenda sem conhecer a igreja;
+- o convite com dia, hora e endereço: Domingo, 11h · Carrer Mestre Serrano, 23 · Manises.
+Diga em que modelo usar: story de convite com objeto (foto real de um objeto da igreja com um cartaz creme por cima: &quot;● ATITUDE VALENCIA&quot;, frase em Montserrat caixa-alta com uma palavra em negrito, continuação grande em Instrument Serif, etiqueta laranja &quot;CULTO · DOMINGO · 11H&quot; e o endereço) ou foto escurecida com título.
+Legenda: gancho para quem está chegando em Valencia, convite, #atitudevalencia.</pre>
+  </div>
+</article>
+<article class="pr" id="sab">
+  <button class="head" type="button" aria-expanded="false" aria-controls="b-sab"><span class="day">Sáb · 10h</span><span class="tt">Reels convite</span><span class="dd">Vídeo curto chamando para amanhã.</span><span class="chev" aria-hidden="true">+</span></button>
+  <div class="body" id="b-sab" hidden>
+    <div class="acts"><button class="copy primary" type="button" data-k="sab" data-full="1">Copiar prompt completo</button><button class="copy" type="button" data-k="sab">Copiar só a tarefa</button><span class="msg" aria-live="polite"></span></div>
+    <pre>TAREFA: Reels convite para o culto de amanhã (sábado, 10h). Objetivo: evangelístico.
+
+Tema da semana: [TEMA E PALAVRAS-CHAVE]
+Quem vai aparecer falando: [NOME, se for alguém convidando] ou [SÓ IMAGENS]
+Clipes disponíveis: [LISTE]
+
+Me entregue:
+1. Roteiro de 15 a 30 segundos com cenas numeradas, texto na tela e duração.
+2. Se tiver alguém falando: a fala dele em 2 ou 3 frases simples, no jeito de falar dele, chamando para o culto. Nada de texto decorado demais.
+3. Texto final na tela: &quot;Domingo · 11h · Manises&quot;.
+4. Legenda com gancho, convite e #atitudevalencia.</pre>
+  </div>
+</article>
+<article class="pr" id="story">
+  <button class="head" type="button" aria-expanded="false" aria-controls="b-story"><span class="day">Qualquer dia</span><span class="tt">Story Palavra do dia</span><span class="dd">Um versículo da pregação sobre uma foto.</span><span class="chev" aria-hidden="true">+</span></button>
+  <div class="body" id="b-story" hidden>
+    <div class="acts"><button class="copy primary" type="button" data-k="story" data-full="1">Copiar prompt completo</button><button class="copy" type="button" data-k="story">Copiar só a tarefa</button><span class="msg" aria-live="polite"></span></div>
+    <pre>TAREFA: story &quot;Palavra do dia&quot; (1080×1920). Objetivo: edificação.
+
+Tema da semana: [TEMA E PALAVRAS-CHAVE]
+Versículo: [REFERÊNCIA, ou &quot;sugira um da pregação&quot;]
+Foto: [ANEXE uma foto do louvor ou da adoração]
+
+Me entregue:
+- O versículo na NVI, conferido, dividido em duas partes: a primeira em creme e a frase principal em laranja.
+- Layout: foto em preto e branco escurecida com degradê embaixo, etiqueta PALAVRA DO DIA no alto, versículo em Instrument Serif itálico grande alinhado à esquerda, traço fino, referência em Montserrat caixa-alta espaçada, rodapé &quot;● ATITUDE VALENCIA&quot; e #atitudevalencia.
+Se o versículo não tiver ligação com o tema da semana, me avise.</pre>
+  </div>
+</article>
+<article class="pr" id="revisar">
+  <button class="head" type="button" aria-expanded="false" aria-controls="b-revisar"><span class="day">Antes de postar</span><span class="tt">Revisar uma peça</span><span class="dd">Para conferir qualquer texto ou arte antes de publicar.</span><span class="chev" aria-hidden="true">+</span></button>
+  <div class="body" id="b-revisar" hidden>
+    <div class="acts"><button class="copy primary" type="button" data-k="revisar" data-full="1">Copiar prompt completo</button><button class="copy" type="button" data-k="revisar">Copiar só a tarefa</button><span class="msg" aria-live="polite"></span></div>
+    <pre>TAREFA: revisar esta peça antes de publicar.
+
+Tipo de peça e dia: [ex.: carrossel de quarta]
+Tema da semana: [TEMA E PALAVRAS-CHAVE]
+Objetivo: [evangelístico / edificação / kids / registro / célula]
+Peça: [COLE O TEXTO E/OU ANEXE AS IMAGENS]
+
+Confira e me diga só o que precisa mudar, com o motivo:
+1. Está no tema da pregação e usa as palavras-chave?
+2. Quem é o herói da peça? Tem que ser Jesus, sem tirar as palavras do tema.
+3. Serve ao objetivo? (convite evangelístico fala com quem está de fora)
+4. Versículos na NVI, com referência e conferidos.
+5. Ortografia, concordância e o nome &quot;Atitude Valencia&quot;.
+6. Cores, fontes e estilo da identidade visual.
+7. Alguma frase com cara de IA?
+Se estiver tudo certo, diga &quot;pode postar&quot;. Na dúvida, mantenha o que já está.</pre>
+  </div>
+</article>
+    </div>
+  </section>
+  <details><summary>Ver as regras que vão em todo prompt</summary><pre>Você vai me ajudar a produzir conteúdo para o Instagram da Igreja Batista Atitude Valencia. Eu sou da equipe voluntária de mídia. Responda em português do Brasil.
+
+SOBRE A IGREJA
+- Nome sempre &quot;Atitude Valencia&quot;.
+- Culto de domingo às 11h, em português. Endereço: Carrer Mestre Serrano, 23, Manises.
+- Células: quartas e quintas (presencial) e sextas (online).
+- Público: brasileiros e lusófonos que vivem em Valencia, muitos recém-chegados (trabalho, documentos, moradia, saudade de casa).
+
+MENSAGEM
+- O conteúdo da semana segue o tema da pregação de domingo. As palavras-chave do tema ficam nas peças (se o tema foi &quot;propósito&quot;, a palavra aparece). Se alguma peça sair do tema, me avise antes e diga por quê.
+- Todo conteúdo aponta para Jesus e para a obra dEle. Nunca para o esforço humano ou conquistas pessoais. Nada de autoajuda (&quot;você consegue&quot;, &quot;conquiste&quot;). Ligue o tema a Jesus com coerência, dentro do que foi pregado, sem trocar palavras do tema.
+- Antes de escrever, identifique o objetivo da peça: evangelístico (convidar quem ainda não vem), edificação (aprofundar a mensagem para a igreja), kids, registro ou chamada para célula. Se não estiver claro, me pergunte.
+
+TOM
+- Acolhedor, direto, esperançoso. Gente da igreja falando, não instituição.
+- Frases curtas e de tamanhos variados. Bíblia na NVI, sempre com a referência.
+- Raciocínio contínuo: cada parte puxa a próxima. Termine com um convite concreto (culto, célula, direct).
+- Use as palavras do próprio pregador sempre que possível.
+
+PARA NÃO PARECER IA
+- Não use: travessão (—) para pausa dramática; &quot;não é X, é Y&quot;; três adjetivos seguidos; &quot;Você já parou para pensar...?&quot;; as palavras jornada, transformador, poderoso, incrível, extraordinário, mergulhar, desbloquear (citações bíblicas e falas do pregador ficam como foram ditas).
+- Nada de títulos todos no mesmo molde, rimas forçadas ou trocadilhos. No máximo 2 emojis na legenda e só a hashtag #atitudevalencia.
+- Antes de me entregar, releia como um membro da igreja e reescreva o que soar como propaganda.
+
+IDENTIDADE VISUAL
+- Cores: laranja #FF7500, azul #48A1B1, creme #FFF7D9, preto #141414 para textos. Nenhuma outra.
+- Texto preto em fundo laranja, azul ou creme. Texto creme em fundo preto ou foto escurecida (sombra preta 30% a 40% ou degradê embaixo). Laranja como texto só em título grande sobre fundo escuro. Nunca texto branco, sombra, contorno ou brilho.
+- Fontes de posts e reels: Bebas Neue (títulos, caixa-alta), Montserrat (texto), Instrument Serif itálico (uma frase de destaque por peça).
+- Stories no Instagram/Edits: título Classic, texto Deco, centralizado no meio ou embaixo.
+- Estilo limpo: margem fixa, sem círculos, pílulas ou caixas coloridas. No topo, traço laranja curto + etiqueta em Montserrat caixa-alta espaçada; no rodapé, &quot;● ATITUDE VALENCIA&quot;.
+- Só fotos reais da igreja. Nunca imagens geradas ou de banco.
+
+Não publique nem agende nada. Se faltar uma informação essencial, me pergunte em uma frase antes de começar.</pre></details>
+  <p class="note">Antes de postar, use o prompt <b>Revisar uma peça</b>. O Claude não publica nem agenda nada.</p>
+  <p class="quote">“Tudo o que fizerem, façam de todo o coração, como para o Senhor.” <span style="font-family:var(--body);font-style:normal;font-weight:700;font-size:12px;letter-spacing:.2em">COLOSSENSES 3.23</span></p>
+</main>
+<script type="application/json" id="data">{"base": "Você vai me ajudar a produzir conteúdo para o Instagram da Igreja Batista Atitude Valencia. Eu sou da equipe voluntária de mídia. Responda em português do Brasil.\n\nSOBRE A IGREJA\n- Nome sempre \"Atitude Valencia\".\n- Culto de domingo às 11h, em português. Endereço: Carrer Mestre Serrano, 23, Manises.\n- Células: quartas e quintas (presencial) e sextas (online).\n- Público: brasileiros e lusófonos que vivem em Valencia, muitos recém-chegados (trabalho, documentos, moradia, saudade de casa).\n\nMENSAGEM\n- O conteúdo da semana segue o tema da pregação de domingo. As palavras-chave do tema ficam nas peças (se o tema foi \"propósito\", a palavra aparece). Se alguma peça sair do tema, me avise antes e diga por quê.\n- Todo conteúdo aponta para Jesus e para a obra dEle. Nunca para o esforço humano ou conquistas pessoais. Nada de autoajuda (\"você consegue\", \"conquiste\"). Ligue o tema a Jesus com coerência, dentro do que foi pregado, sem trocar palavras do tema.\n- Antes de escrever, identifique o objetivo da peça: evangelístico (convidar quem ainda não vem), edificação (aprofundar a mensagem para a igreja), kids, registro ou chamada para célula. Se não estiver claro, me pergunte.\n\nTOM\n- Acolhedor, direto, esperançoso. Gente da igreja falando, não instituição.\n- Frases curtas e de tamanhos variados. Bíblia na NVI, sempre com a referência.\n- Raciocínio contínuo: cada parte puxa a próxima. Termine com um convite concreto (culto, célula, direct).\n- Use as palavras do próprio pregador sempre que possível.\n\nPARA NÃO PARECER IA\n- Não use: travessão (—) para pausa dramática; \"não é X, é Y\"; três adjetivos seguidos; \"Você já parou para pensar...?\"; as palavras jornada, transformador, poderoso, incrível, extraordinário, mergulhar, desbloquear (citações bíblicas e falas do pregador ficam como foram ditas).\n- Nada de títulos todos no mesmo molde, rimas forçadas ou trocadilhos. No máximo 2 emojis na legenda e só a hashtag #atitudevalencia.\n- Antes de me entregar, releia como um membro da igreja e reescreva o que soar como propaganda.\n\nIDENTIDADE VISUAL\n- Cores: laranja #FF7500, azul #48A1B1, creme #FFF7D9, preto #141414 para textos. Nenhuma outra.\n- Texto preto em fundo laranja, azul ou creme. Texto creme em fundo preto ou foto escurecida (sombra preta 30% a 40% ou degradê embaixo). Laranja como texto só em título grande sobre fundo escuro. Nunca texto branco, sombra, contorno ou brilho.\n- Fontes de posts e reels: Bebas Neue (títulos, caixa-alta), Montserrat (texto), Instrument Serif itálico (uma frase de destaque por peça).\n- Stories no Instagram/Edits: título Classic, texto Deco, centralizado no meio ou embaixo.\n- Estilo limpo: margem fixa, sem círculos, pílulas ou caixas coloridas. No topo, traço laranja curto + etiqueta em Montserrat caixa-alta espaçada; no rodapé, \"● ATITUDE VALENCIA\".\n- Só fotos reais da igreja. Nunca imagens geradas ou de banco.\n\nNão publique nem agende nada. Se faltar uma informação essencial, me pergunte em uma frase antes de começar.", "p": {"domingo": "TAREFA: organizar o tema da semana a partir da pregação de domingo.\n\nPregação de [DATA]\nPregador: [NOME]\nTexto bíblico: [LIVRO, CAPÍTULO E VERSÍCULOS]\nMinhas anotações (ou transcrição): [COLE AQUI]\n\nMe entregue:\n1. O tema em uma frase curta e as 2 ou 3 palavras-chave que vão aparecer nas peças da semana.\n2. Os pontos principais da mensagem, na ordem em que foram pregados, com o versículo de cada um (NVI).\n3. Como a mensagem aponta para Jesus, do jeito que foi pregado. Se o pregador não fez essa ligação, me diga em vez de inventar.\n4. De 3 a 5 frases marcantes do pregador, exatamente como ele falou, para usar nos reels e posts.\n5. Uma sugestão de versículo para a Palavra do dia.\n\nGuarde esse tema: vou te pedir as outras peças da semana nesta mesma conversa.", "seg": "TAREFA: roteiro do Reels de resumo do culto (segunda, 10h). Objetivo: registro e convite.\n\nTema da semana: [TEMA E PALAVRAS-CHAVE, ou \"use o tema que você organizou acima\"]\nClipes que eu tenho: [LISTE: louvor, abraços no minuto conexão, kids, pregação, pessoas chegando...]\nDuração desejada: [ex.: 30 a 45 segundos]\n\nMe entregue:\n1. Roteiro com as cenas numeradas, a duração de cada uma e qual clipe usar.\n2. Texto na tela de cada cena (curto, título em Bebas Neue e legenda em Montserrat, palavra-chave em laranja).\n3. Uma frase do pregador para entrar no meio do vídeo, se couber.\n4. Legenda do post: gancho na primeira linha, 3 a 6 linhas curtas, convite para o próximo domingo às 11h, #atitudevalencia.\nNão sugira música a não ser que eu peça.", "ter": "TAREFA: carrossel de fotos do culto (terça, 16h). Objetivo: registro.\n\nTema da semana: [TEMA E PALAVRAS-CHAVE]\nFotos: [ANEXE AS FOTOS ou descreva cada uma]\nQuantidade de slides: [ex.: 8 a 10]\n\nMe entregue:\n1. A ordem das fotos e por quê (abrir com a mais forte, variar planos: gente, louvor, detalhes, kids, pregação).\n2. Texto da capa: título curto em Bebas Neue ligado ao tema, em creme sobre a foto escurecida embaixo, rodapé \"● ATITUDE VALENCIA\". Só a capa tem texto, o resto são fotos limpas.\n3. Legenda do post com gancho, 3 a 6 linhas, convite e #atitudevalencia.\nSe alguma foto estiver escura, tremida ou mostrar muito lugar vazio, me avise.", "qua1": "TAREFA: Reels com um trecho da pregação (quarta, 10h). Objetivo: edificação e alcance.\n\nTema da semana: [TEMA E PALAVRAS-CHAVE]\nTranscrição ou anotações do trecho: [COLE AQUI, com o minuto do vídeo se tiver]\n\nMe entregue:\n1. O melhor trecho de 30 a 60 segundos, com início e fim exatos (primeira e última frase), escolhido pelo que aponta para Jesus e para o tema.\n2. Gancho para os 2 primeiros segundos: a frase do pregador que abre o vídeo ou um título curto na tela.\n3. Texto de capa do Reels (Bebas Neue, até 6 palavras, palavra do tema em laranja).\n4. Legenda: gancho, 3 a 6 linhas, convite para o culto ou célula, #atitudevalencia.\n5. Opcional: a frase para um post \"frase do pregador\" (foto do pregador com degradê escuro embaixo, frase em Bebas Neue creme, última palavra em laranja). Use as palavras dele, sem reescrever.", "qua2": "TAREFA: carrossel \"Resumo da Palavra\" (quarta, 16h). Objetivo: edificação.\n\nTema da semana: [TEMA E PALAVRAS-CHAVE]\nTexto bíblico: [REFERÊNCIA]\nAnotações da mensagem: [COLE AQUI]\nFotos: [ANEXE: pregador para a capa, uma foto horizontal para o slide 5, duas para os slides 6 e 8]\n\nFormato: 8 slides 1080×1350. Margem fixa de 96px. Em cada slide: etiqueta no topo (traço laranja + texto em caixa-alta espaçada, número da página à direita, ex.: 02/08), 1 título em Bebas Neue, 1 parágrafo curto em Montserrat, no máximo 1 frase em Instrument Serif itálico, rodapé \"● ATITUDE VALENCIA\". Sem caixas, círculos ou efeitos.\n\nRitmo dos slides:\n1. Capa: foto do pregador inteira, degradê escuro embaixo, título creme com as palavras finais em laranja, etiqueta RESUMO DA PALAVRA + livro à direita, seta →.\n2. Contexto (fundo creme): título + parágrafo + versículo em serifa + linha fina + frase que puxa para os pontos.\n3. Ponto 1 (creme): mesma estrutura, termina com uma conclusão curta.\n4. Ponto 2 (creme): termina puxando o ponto 3.\n5. Ponto 3 (meio a meio): foto em cima, texto embaixo, termina com uma pergunta em serifa.\n6. Resposta prática: foto em cima que se funde no preto, frase-ponte em serifa creme, lista 01/02/03 com o verbo em Bebas Neue e o complemento em Montserrat ao lado.\n7. A certeza (fundo laranja, texto preto): frase-ponte pequena, título gigante, parágrafo curto.\n8. O convite (foto escurecida): frase em serifa, título creme, linha, convite para as células (quartas e quintas presencial, sextas online) e para o direct, #atitudevalencia no rodapé.\n\nRegras do texto: siga a ordem do que foi pregado, sem frases soltas (cada slide termina puxando o próximo). A palavra-chave do tema aparece na capa e no fechamento. O slide 7 aponta para o que Deus fez e faz, não para o esforço da pessoa. Quebre os títulos à mão para não sobrar uma palavra sozinha.\n\nMe entregue primeiro só os textos de cada slide para eu aprovar. Depois, se eu pedir, monte as imagens.", "qui": "TAREFA: conteúdo de quinta, 10h. Escolha: [TREND] ou [KIDS]\n\nSE FOR TREND\nTema da semana: [TEMA E PALAVRAS-CHAVE]\nTrend que pensamos: [DESCREVA ou cole o link] (se não tiver, peça 2 ideias)\nQuem vai participar: [NOMES OU QUANTAS PESSOAS]\nMe entregue: roteiro curto com cenas numeradas e texto na tela, ligando a trend ao tema sem forçar; o que gravar no domingo logo depois do culto; legenda com #atitudevalencia. Se a trend não combinar com uma igreja, me diga.\n\nSE FOR KIDS\nFotos ou vídeos das crianças: [ANEXE]\nMe entregue um carrossel no modelo Kids:\n- Cada slide: foto da criança inteira, sem escurecer. No canto inferior esquerdo, uma faixa creme pequena com 1 a 4 palavras em Bebas Neue preto e, embaixo, uma faixa laranja com a palavra-chave em Bebas Neue preto. Abaixo, a pílula preta \"● ATITUDE VALENCIA\".\n- As faixas formam uma frase só que atravessa os slides e usa a palavra do tema da semana.\n- Slide final em fundo laranja: versículo em serifa, linha fina, título em Bebas Neue, convite em Montserrat (\"Domingo, às 11h, tem espaço para eles no Kids\"), rodapé com #atitudevalencia.\n- Confira o gênero de cada criança na concordância (cheio/cheia).\n- Legenda com convite às famílias.", "sex": "TAREFA: post de chamada para o culto de domingo (sexta, 10h). Objetivo: EVANGELÍSTICO. Fala com quem ainda não vem à igreja e termina chamando para o culto.\n\nTema da semana: [TEMA E PALAVRAS-CHAVE]\nPregador de domingo e tema, se já souber: [PREENCHA]\nFoto: [ANEXE: lugar da igreja, cadeira, pessoas chegando...]\n\nMe entregue 2 opções de texto curto para o post ou story, cada uma com:\n- uma frase principal que alguém de fora entenda sem conhecer a igreja;\n- o convite com dia, hora e endereço: Domingo, 11h · Carrer Mestre Serrano, 23 · Manises.\nDiga em que modelo usar: story de convite com objeto (foto real de um objeto da igreja com um cartaz creme por cima: \"● ATITUDE VALENCIA\", frase em Montserrat caixa-alta com uma palavra em negrito, continuação grande em Instrument Serif, etiqueta laranja \"CULTO · DOMINGO · 11H\" e o endereço) ou foto escurecida com título.\nLegenda: gancho para quem está chegando em Valencia, convite, #atitudevalencia.", "sab": "TAREFA: Reels convite para o culto de amanhã (sábado, 10h). Objetivo: evangelístico.\n\nTema da semana: [TEMA E PALAVRAS-CHAVE]\nQuem vai aparecer falando: [NOME, se for alguém convidando] ou [SÓ IMAGENS]\nClipes disponíveis: [LISTE]\n\nMe entregue:\n1. Roteiro de 15 a 30 segundos com cenas numeradas, texto na tela e duração.\n2. Se tiver alguém falando: a fala dele em 2 ou 3 frases simples, no jeito de falar dele, chamando para o culto. Nada de texto decorado demais.\n3. Texto final na tela: \"Domingo · 11h · Manises\".\n4. Legenda com gancho, convite e #atitudevalencia.", "story": "TAREFA: story \"Palavra do dia\" (1080×1920). Objetivo: edificação.\n\nTema da semana: [TEMA E PALAVRAS-CHAVE]\nVersículo: [REFERÊNCIA, ou \"sugira um da pregação\"]\nFoto: [ANEXE uma foto do louvor ou da adoração]\n\nMe entregue:\n- O versículo na NVI, conferido, dividido em duas partes: a primeira em creme e a frase principal em laranja.\n- Layout: foto em preto e branco escurecida com degradê embaixo, etiqueta PALAVRA DO DIA no alto, versículo em Instrument Serif itálico grande alinhado à esquerda, traço fino, referência em Montserrat caixa-alta espaçada, rodapé \"● ATITUDE VALENCIA\" e #atitudevalencia.\nSe o versículo não tiver ligação com o tema da semana, me avise.", "revisar": "TAREFA: revisar esta peça antes de publicar.\n\nTipo de peça e dia: [ex.: carrossel de quarta]\nTema da semana: [TEMA E PALAVRAS-CHAVE]\nObjetivo: [evangelístico / edificação / kids / registro / célula]\nPeça: [COLE O TEXTO E/OU ANEXE AS IMAGENS]\n\nConfira e me diga só o que precisa mudar, com o motivo:\n1. Está no tema da pregação e usa as palavras-chave?\n2. Quem é o herói da peça? Tem que ser Jesus, sem tirar as palavras do tema.\n3. Serve ao objetivo? (convite evangelístico fala com quem está de fora)\n4. Versículos na NVI, com referência e conferidos.\n5. Ortografia, concordância e o nome \"Atitude Valencia\".\n6. Cores, fontes e estilo da identidade visual.\n7. Alguma frase com cara de IA?\nSe estiver tudo certo, diga \"pode postar\". Na dúvida, mantenha o que já está."}}</script>
+<script>
+(function(){
+  var D=JSON.parse(document.getElementById('data').textContent);
+  document.querySelectorAll('.head').forEach(function(h){h.addEventListener('click',function(){
+    var b=document.getElementById(h.getAttribute('aria-controls'));var open=h.getAttribute('aria-expanded')==='true';
+    h.setAttribute('aria-expanded',open?'false':'true');b.hidden=open;
+  })});
+  document.querySelectorAll('button.copy').forEach(function(btn){btn.addEventListener('click',function(){
+    var k=btn.getAttribute('data-k');var txt=btn.hasAttribute('data-full')?D.base+'\n\n'+D.p[k]:D.p[k];
+    var msg=btn.parentNode.querySelector('.msg');
+    function fallback(){var pre=btn.closest('.body').querySelector('pre');var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);msg.textContent='Selecionei a tarefa. Copie manualmente.'}
+    try{navigator.clipboard.writeText(txt).then(function(){msg.textContent='Copiado. Cole no Claude.';setTimeout(function(){msg.textContent=''},2500)},fallback)}catch(e){fallback()}
+  })});
+  var h=(location.hash||'').slice(1);var t=h&&document.getElementById(h);if(t){t.querySelector('.head').click()}
+})();
+</script>
+
+</body>
+</html>
